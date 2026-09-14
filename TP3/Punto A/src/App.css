@@ -1,0 +1,127 @@
+/* Reset básico para limpiar los estilos por defecto del navegador */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Contenedor principal con CSS Grid (Maquetación del curso) */
+.layout {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "nav nav"
+    "content sidebar"
+    "footer footer";
+  grid-template-columns: 70% 30%;
+  grid-template-rows: auto auto 1fr auto;
+  min-height: 100vh;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 1. Cabecera */
+.header {
+  grid-area: header;
+  background-color: #282c34;
+  color: white;
+  padding: 30px;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+/* 2. Navegación */
+.nav {
+  grid-area: nav;
+  background-color: #61dafb;
+  padding: 15px;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: #282c34;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+/* 3. Contenido Principal (Los artículos) */
+.content {
+  grid-area: content;
+  padding: 30px;
+}
+
+.articulo-item {
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* 4. Barra Lateral (Buscador y Formulario) */
+.sidebar {
+  grid-area: sidebar;
+  background-color: #f0f0f0;
+  padding: 30px;
+  border-left: 1px solid #ddd;
+}
+
+.sidebar .search,
+.sidebar .add {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.sidebar input[type="text"],
+.sidebar textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.btn {
+  padding: 10px 15px;
+  background-color: #282c34;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+.btn:hover {
+  background-color: #61dafb;
+  color: #282c34;
+}
+
+/* 5. Pie de página */
+.footer {
+  grid-area: footer;
+  background-color: #282c34;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
