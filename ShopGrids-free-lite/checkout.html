@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Prototipo académico inspirado en MercadoLibre Argentina.">
+  <title>Finalizar compra | mercadolibre — Prototipo académico</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/LineIcons.3.0.css">
+  <link rel="stylesheet" href="assets/css/tiny-slider.css">
+  <link rel="stylesheet" href="assets/css/glightbox.min.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/meli-custom.css">
+</head>
+<body class="meli">
+  <div class="meli-story">HU-04: Agregar al carrito y comprar</div>
+  <header class="meli-header">
+    <div class="meli-wrap">
+      <div class="meli-header-main">
+        <a class="meli-logo" href="index.html" aria-label="mercadolibre, ir al inicio">mercadolibre</a>
+        <form class="meli-search" action="index.html" method="get" role="search" aria-label="Buscar productos">
+          <div class="meli-search-box">
+            <label class="visually-hidden" for="busqueda">Buscar productos, marcas y más</label>
+            <input id="busqueda" name="q" type="search" placeholder="Buscar productos, marcas y más..." autocomplete="off" aria-describedby="ayuda-busqueda">
+            <button type="submit">Buscar</button>
+          </div>
+          <span class="visually-hidden" id="ayuda-busqueda">Al seleccionar el buscador aparecen sugerencias de ejemplo. Podés recorrerlas con la tecla Tab.</span>
+          <ul class="meli-suggestions" aria-label="Búsquedas sugeridas">
+            <li><a href="product-grids.html?q=auriculares">Auriculares inalámbricos</a></li>
+            <li><a href="product-grids.html?q=notebooks">Notebooks para estudiar</a></li>
+            <li><a href="product-grids.html?q=parlantes">Parlantes Bluetooth</a></li>
+            <li><a href="product-grids.html?q=celulares">Celulares liberados</a></li>
+          </ul>
+        </form>
+        <nav class="meli-account" aria-label="Mi cuenta">
+          <a href="login.html">Ingresá</a>
+          <a href="register.html">Creá tu cuenta</a>
+          <a class="meli-cart-link" href="cart.html" aria-label="Ver mi carrito">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M2 3h3l2.4 12h11.8l2-8H6"></path>
+              <circle cx="9" cy="20" r="1"></circle><circle cx="18" cy="20" r="1"></circle>
+            </svg>
+            <span class="visually-hidden">Carrito</span>
+          </a>
+        </nav>
+      </div>
+      <div class="meli-header-bottom">
+        <span>Enviamos a todo el país</span>
+        <nav class="meli-nav" aria-label="Navegación principal">
+          <a href="index.html">Inicio</a>
+          <a href="product-grids.html" >Explorar productos</a>
+          <a href="cart.html">Mi carrito</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+<main class="meli-main" id="contenido"><div class="meli-wrap">
+  <nav class="meli-breadcrumb" aria-label="Ruta de navegación"><a href="cart.html">Mi carrito</a><span aria-hidden="true"> / </span><span>Finalizar compra</span></nav>
+  <section class="meli-panel meli-confirmation" id="compra-confirmada" aria-labelledby="titulo-confirmacion" tabindex="-1" hidden><p class="meli-shipping mb-2">Compra simulada confirmada</p><h1 id="titulo-confirmacion">¡Gracias por tu compra!</h1><p class="mt-3">Tu número de compra es <strong id="numero-compra"></strong>.</p><p class="mt-2" id="detalle-confirmacion"></p><p class="meli-muted mt-3">Este es un comprobante de ejemplo. No se realizó ningún cobro ni se envió un email.</p><a class="meli-button mt-4" href="index.html">Volver al inicio</a></section>
+  <div id="paso-compra"><h1 class="fs-3 mb-4">Finalizá tu compra</h1>
+    <div class="meli-alert" id="aviso-acceso">Para confirmar la compra, <a id="acceso-checkout" href="login.html">ingresá</a> o <a id="registro-checkout" href="register.html">creá tu cuenta</a>. Podés completar tus datos primero.</div>
+    <p class="meli-shipping mb-3" id="sesion-activa" hidden>Sesión de prueba iniciada.</p>
+    <form id="form-compra" novalidate><div class="meli-two-columns">
+      <div class="meli-panel"><h2>Datos de entrega</h2><div class="meli-form-grid">
+        <div class="meli-field"><label for="nombre">Nombre</label><input id="nombre" name="nombre" autocomplete="given-name" required></div>
+        <div class="meli-field"><label for="apellido">Apellido</label><input id="apellido" name="apellido" autocomplete="family-name" required></div>
+        <div class="meli-field meli-full-width"><label for="direccion">Calle y número</label><input id="direccion" name="direccion" autocomplete="street-address" placeholder="Ej.: Av. Corrientes 1234" required></div>
+        <div class="meli-field"><label for="localidad">Localidad</label><input id="localidad" name="localidad" autocomplete="address-level2" required></div>
+        <div class="meli-field"><label for="provincia">Provincia</label><select id="provincia" name="provincia" autocomplete="address-level1" required><option value="">Seleccioná una provincia</option><option>Ciudad Autónoma de Buenos Aires</option><option>Buenos Aires</option><option>Catamarca</option><option>Chaco</option><option>Chubut</option><option>Córdoba</option><option>Corrientes</option><option>Entre Ríos</option><option>Formosa</option><option>Jujuy</option><option>La Pampa</option><option>La Rioja</option><option>Mendoza</option><option>Misiones</option><option>Neuquén</option><option>Río Negro</option><option>Salta</option><option>San Juan</option><option>San Luis</option><option>Santa Cruz</option><option>Santa Fe</option><option>Santiago del Estero</option><option>Tierra del Fuego</option><option>Tucumán</option></select></div>
+        <div class="meli-field"><label for="codigo-postal">Código postal</label><input id="codigo-postal" name="postal" autocomplete="postal-code" maxlength="8" placeholder="Ej.: 1414" required aria-describedby="ayuda-postal"><p class="meli-muted mt-1" id="ayuda-postal">4 números o CPA completo.</p></div>
+        <div class="meli-field"><label for="piso">Piso y departamento (opcional)</label><input id="piso" name="piso" placeholder="Ej.: 2.º B"></div>
+      </div>
+      <fieldset class="mt-3"><legend class="fs-5 fw-bold">Elegí el envío</legend><label class="meli-check"><input type="radio" name="envio" value="estandar" checked>Estándar · Gratis</label><label class="meli-check"><input type="radio" name="envio" value="express">Express · Consultá el costo con tu código postal</label><p class="meli-muted" id="plazo-envio">Ingresá tu código postal para ver costos y plazos.</p></fieldset>
+      <fieldset class="mt-4"><legend class="fs-5 fw-bold">Medio de pago</legend><label class="meli-check"><input type="radio" name="pago" value="tarjeta" checked>Tarjeta de prueba terminada en 1234</label><label class="meli-check"><input type="radio" name="pago" value="cuenta">Dinero en cuenta de prueba</label><p class="meli-muted">No ingreses datos bancarios reales.</p></fieldset>
+      <p class="meli-error mt-3" id="error-compra" role="alert" hidden></p></div>
+      <aside class="meli-panel"><h2>Resumen de compra</h2><div id="productos-checkout" class="mb-4"></div><div id="resumen-checkout" aria-live="polite" aria-atomic="true"></div><button class="meli-button w-100 mt-3" id="confirmar-compra" type="submit">Confirmar compra</button><a class="mt-3" id="volver-carrito" href="cart.html">Volver al carrito</a><p class="meli-muted mt-3">Compra de demostración. No se realizan cobros.</p></aside>
+    </div></form>
+  </div><p class="meli-demo-note">HU-04: agregar al carrito y comprar. Datos, costos y plazos de ejemplo para el trabajo práctico.</p>
+</div></main>
+  <footer class="meli-footer">
+    <div class="meli-wrap">
+      <nav class="meli-footer-links" aria-label="Enlaces del pie de página">
+        <a href="index.html">Inicio</a><a href="product-grids.html">Productos</a>
+        <a href="login.html">Ingresá</a><a href="register.html">Creá tu cuenta</a><a href="cart.html">Mi carrito</a>
+      </nav>
+      <p>Prototipo universitario inspirado en MercadoLibre Argentina. Sin afiliación con Mercado Libre.</p>
+      <p>Plantilla ShopGrids: diseño y desarrollo de <a href="https://graygrids.com/" target="_blank" rel="noopener noreferrer nofollow">GrayGrids</a>. Adaptación con fines educativos.</p>
+    </div>
+  </footer>
+<script>
+"use strict";
+
+const catalogo = [{"id":"1","title":"Pulsera inteligente Xiaomi Mi Band 5 negra","price":69999,"condition":"nuevo","location":"caba","place":"Capital Federal","words":"pulsera inteligente xiaomi mi band 5 relojes","images":[{"src":"assets/images/products/product-1.jpg","alt":"Pulsera de actividad con pantalla y correa negra"}],"description":"Pulsera de actividad para consultar notificaciones y acompañar tus rutinas. Incluye correa y cable de carga.","stock":12},{"id":"2","title":"Parlante portátil Bluetooth con batería recargable","price":125999,"condition":"nuevo","location":"buenos-aires","place":"Buenos Aires","words":"parlante parlantes portatil bluetooth bateria recargable","images":[{"src":"assets/images/products/product-2.jpg","alt":"Parlante portátil inalámbrico"}],"description":"Parlante portátil para escuchar música en casa o llevar a tus reuniones. Incluye cable de carga.","stock":12},{"id":"3","title":"Cámara de seguridad Wi-Fi para interior Full HD","price":84999,"condition":"nuevo","location":"cordoba","place":"Córdoba","words":"camara camaras seguridad wifi wi-fi interior full hd","images":[{"src":"assets/images/products/product-3.jpg","alt":"Cámara de seguridad para el hogar"}],"description":"Cámara para monitorear ambientes interiores desde una conexión Wi-Fi. Incluye fuente de alimentación y soporte.","stock":12},{"id":"4","title":"Apple iPhone 6s Plus 64 GB reacondicionado","price":249999,"condition":"usado","location":"caba","place":"Capital Federal","words":"apple iphone 6s plus 64 gb celular celulares liberado reacondicionado","images":[{"src":"assets/images/products/product-4.jpg","alt":"Teléfono celular con pantalla táctil"}],"description":"Celular reacondicionado, revisado y con marcas de uso leves. Incluye cable de carga. Consultá el estado en las imágenes.","stock":5},{"id":"5","title":"Auriculares inalámbricos de vincha con micrófono","price":89999,"condition":"nuevo","location":"buenos-aires","place":"Buenos Aires","words":"auricular auriculares inalambricos bluetooth vincha microfono","images":[{"src":"assets/images/products/product-5.jpg","alt":"Auriculares inalámbricos de vincha"}],"description":"Auriculares de vincha para escuchar música, estudiar y realizar llamadas. Incluye cable de carga.","stock":12},{"id":"6","title":"Mini parlante Bluetooth portátil recargable","price":39999,"condition":"nuevo","location":"santa-fe","place":"Santa Fe","words":"mini parlante parlantes bluetooth portatil recargable","images":[{"src":"assets/images/products/product-6.jpg","alt":"Parlante compacto portátil"}],"description":"Parlante compacto y recargable para llevar tu música con vos. Incluye cable de carga.","stock":12},{"id":"7","title":"Auriculares Bluetooth con cancelación de ruido","price":189999,"condition":"nuevo","location":"cordoba","place":"Córdoba","words":"auricular auriculares inalambricos bluetooth cancelacion ruido","images":[{"src":"assets/images/products/product-7.jpg","alt":"Auriculares de vincha con almohadillas"}],"description":"Auriculares de vincha para escuchar música y reducir el ruido del entorno. Incluye cable de carga.","stock":12},{"id":"8","title":"Notebook Apple MacBook Air 13 pulgadas, 8 GB, 256 GB","price":1499999,"condition":"usado","location":"caba","place":"Capital Federal","words":"notebook notebooks apple macbook air 13 pulgadas 8 gb 256 gb","images":[{"src":"assets/images/products/product-8.jpg","alt":"Notebook Apple MacBook Air abierta"}],"description":"Notebook usada para estudiar y trabajar. Memoria de 8 GB y almacenamiento de 256 GB. Incluye cargador.","stock":5},{"id":"9","title":"Dron GoPro Karma con cámara y accesorios","price":799999,"condition":"usado","location":"caba","place":"Capital Federal","words":"dron drones gopro karma camara accesorios","stock":3,"description":"Dron usado en buen estado, con cámara, control remoto y estuche de transporte. Incluye los accesorios que se muestran en las fotos. Revisado por el vendedor antes de su publicación.","images":[{"src":"assets/images/product-details/01.jpg","alt":"Dron GoPro Karma con cámara, vista general"},{"src":"assets/images/product-details/02.jpg","alt":"Dron GoPro Karma con cámara, vista lateral"},{"src":"assets/images/product-details/03.jpg","alt":"Dron plegado con control remoto y accesorios en su estuche"}]}];
+const parametros = new URLSearchParams(location.search);
+const porId = id => document.getElementById(id);
+const pesos = valor => "$ " + valor.toLocaleString("es-AR");
+function leer(tipo, clave, defecto) { try { const valor = window[tipo].getItem(clave); return valor === null ? defecto : JSON.parse(valor); } catch { return defecto; } }
+function guardar(tipo, clave, valor) { try { window[tipo].setItem(clave, JSON.stringify(valor)); } catch {} }
+function depurar(items) {
+  if (!Array.isArray(items)) return [];
+  const encontrados = new Map();
+  items.forEach(item => {
+    const producto = catalogo.find(producto => producto.id === String(item.id));
+    if (producto && Number.isFinite(Number(item.cantidad))) encontrados.set(producto.id, { id: producto.id, cantidad: Math.max(1, Math.min(producto.stock, Math.trunc(Number(item.cantidad)))) });
+  });
+  return Array.from(encontrados.values());
+}
+function guardarCarrito(items) { guardar("localStorage", "meli-tp-carrito", depurar(items)); }
+function obtenerCarrito(compraDirecta) {
+  const guardados = leer("localStorage", "meli-tp-carrito", null);
+  let items = guardados === null ? (parametros.has("producto") ? [] : [{ id: "9", cantidad: 1 }]) : depurar(guardados);
+  if (parametros.has("items")) items = depurar(parametros.get("items").split(",").map(item => { const [id, cantidad] = item.split(":"); return { id, cantidad }; }));
+  if (parametros.has("producto")) {
+    const seleccionado = depurar([{ id: parametros.get("producto"), cantidad: parametros.get("cantidad") || 1 }])[0];
+    if (seleccionado) {
+      if (compraDirecta) items = [seleccionado];
+      else {
+        const existente = items.find(item => item.id === seleccionado.id);
+        if (existente) existente.cantidad += seleccionado.cantidad;
+        else items.push(seleccionado);
+      }
+    }
+  }
+  items = depurar(items);
+  guardarCarrito(items);
+  try {
+    const limpia = new URL(location.href);
+    limpia.searchParams.delete("producto"); limpia.searchParams.delete("cantidad");
+    if (compraDirecta) limpia.searchParams.set("items", codificar(items));
+    history.replaceState(null, "", limpia.href);
+  } catch {}
+  return items;
+}
+function codificar(items) { return items.map(item => item.id + ":" + item.cantidad).join(","); }
+function subtotal(items) { return items.reduce((total, item) => total + catalogo.find(producto => producto.id === item.id).price * item.cantidad, 0); }
+function accesoActivo() { return parametros.get("acceso") === "demo" || leer("sessionStorage", "meli-tp-acceso", false) === true; }
+function destinoSeguro() {
+  const valor = parametros.get("volver") || "index.html";
+  if (!/^(index|cart|checkout)\.html(?:\?[^#]*)?$/.test(valor)) return "index.html";
+  return valor;
+}
+function completarAcceso() {
+  guardar("sessionStorage", "meli-tp-acceso", true);
+  const destino = new URL(destinoSeguro(), location.href);
+  destino.searchParams.set("acceso", "demo");
+  location.href = destino.href;
+}
+function calcularEnvio(codigo) {
+  const valor = codigo.trim().toUpperCase();
+  if (!/^[1-9]\d{3}$/.test(valor) && !/^[A-HJ-NP-Z][1-9]\d{3}[A-Z]{3}$/.test(valor)) return null;
+  const numero = Number(valor.match(/\d{4}/)[0]);
+  return numero < 2000 ? { precio: 2499, estandar: "1 a 2 días hábiles", express: "1 día hábil" } : numero < 6000 ? { precio: 4999, estandar: "3 a 5 días hábiles", express: "2 a 3 días hábiles" } : { precio: 7999, estandar: "5 a 7 días hábiles", express: "3 a 4 días hábiles" };
+}
+
+(function checkoutLogic() {
+  const items = obtenerCarrito(true);
+  const form = porId('form-compra');
+  const fields = ['nombre', 'apellido', 'direccion', 'localidad', 'provincia', 'codigo-postal', 'piso'];
+  const draft = leer('sessionStorage', 'meli-tp-entrega', {});
+  fields.forEach(id => { if (typeof draft[id] === 'string') porId(id).value = draft[id]; });
+  const volver = 'checkout.html?' + new URLSearchParams({ items: codificar(items) });
+  const acceso = 'login.html?' + new URLSearchParams({ volver });
+  const registro = 'register.html?' + new URLSearchParams({ volver });
+  porId('acceso-checkout').href = acceso;
+  porId('registro-checkout').href = registro;
+  porId('volver-carrito').href = 'cart.html?' + new URLSearchParams({ items: codificar(items) });
+  porId('aviso-acceso').hidden = accesoActivo();
+  porId('sesion-activa').hidden = !accesoActivo();
+  items.forEach(item => {
+    const producto = catalogo.find(producto => producto.id === item.id);
+    const p = document.createElement('p'); p.className = 'meli-muted mb-2'; p.textContent = item.cantidad + ' × ' + producto.title; porId('productos-checkout').appendChild(p);
+  });
+  function metodo() { return form.querySelector('input[name="envio"]:checked').value; }
+  function guardarBorrador() { const datos = {}; fields.forEach(id => { datos[id] = porId(id).value; }); guardar('sessionStorage', 'meli-tp-entrega', datos); }
+  function resumen() {
+    const cotizacion = calcularEnvio(porId('codigo-postal').value);
+    const esExpress = metodo() === 'express';
+    const costo = esExpress && cotizacion ? cotizacion.precio : 0;
+    const envioTexto = esExpress && !cotizacion ? 'A calcular' : pesos(costo);
+    const totalTexto = esExpress && !cotizacion ? 'A calcular' : pesos(subtotal(items) + costo);
+    porId('resumen-checkout').innerHTML = '<div class="meli-summary-row"><span>Subtotal</span><span>' + pesos(subtotal(items)) + '</span></div><div class="meli-summary-row"><span>Envío</span><span>' + envioTexto + '</span></div><div class="meli-summary-row meli-summary-total"><span>Total</span><span>' + totalTexto + '</span></div>';
+    porId('plazo-envio').textContent = cotizacion ? 'Llega en ' + (esExpress ? cotizacion.express : cotizacion.estandar) + ' desde la confirmación.' : 'Ingresá un código postal válido para consultar costos y plazos.';
+    if (!items.length) { porId('confirmar-compra').disabled = true; porId('productos-checkout').textContent = 'Tu carrito está vacío. Volvé a productos para elegir qué comprar.'; }
+  }
+  form.addEventListener('input', () => { guardarBorrador(); resumen(); });
+  form.addEventListener('change', () => { guardarBorrador(); resumen(); });
+  form.addEventListener('submit', evento => {
+    evento.preventDefault();
+    const error = porId('error-compra'); error.hidden = true;
+    if (!items.length) return;
+    if (!form.checkValidity()) { error.textContent = 'Completá los datos obligatorios de entrega.'; error.hidden = false; form.reportValidity(); return; }
+    const cotizacion = calcularEnvio(porId('codigo-postal').value);
+    if (!cotizacion) { error.textContent = 'Ingresá un código postal válido, como 1414 o C1414ABC.'; error.hidden = false; porId('codigo-postal').focus(); return; }
+    guardarBorrador();
+    if (!accesoActivo()) { location.href = acceso; return; }
+    const costo = metodo() === 'express' ? cotizacion.precio : 0;
+    const pago = form.querySelector('input[name="pago"]:checked').value === 'tarjeta' ? 'tarjeta de prueba' : 'dinero en cuenta de prueba';
+    porId('numero-compra').textContent = 'TP-' + Date.now().toString().slice(-8);
+    porId('detalle-confirmacion').textContent = 'Total: ' + pesos(subtotal(items) + costo) + '. Pago con ' + pago + '. Entrega en ' + porId('direccion').value + ', ' + porId('localidad').value + ', en ' + (metodo() === 'express' ? cotizacion.express : cotizacion.estandar) + '.';
+    guardarCarrito([]);
+    porId('paso-compra').hidden = true;
+    porId('compra-confirmada').hidden = false;
+    porId('compra-confirmada').focus();
+  });
+  [porId('acceso-checkout'), porId('registro-checkout')].forEach(enlace => enlace.addEventListener('click', guardarBorrador));
+  resumen();
+})();
+</script>
+<script>
+    (() => {
+      "use strict";
+      const productos = [{"id":"1","title":"Pulsera inteligente Xiaomi Mi Band 5 negra","price":69999,"condition":"nuevo","location":"caba","place":"Capital Federal","words":"pulsera inteligente xiaomi mi band 5 relojes","images":[{"src":"assets/images/products/product-1.jpg","alt":"Pulsera de actividad con pantalla y correa negra"}],"description":"Pulsera de actividad para consultar notificaciones y acompañar tus rutinas. Incluye correa y cable de carga.","stock":12},{"id":"2","title":"Parlante portátil Bluetooth con batería recargable","price":125999,"condition":"nuevo","location":"buenos-aires","place":"Buenos Aires","words":"parlante parlantes portatil bluetooth bateria recargable","images":[{"src":"assets/images/products/product-2.jpg","alt":"Parlante portátil inalámbrico"}],"description":"Parlante portátil para escuchar música en casa o llevar a tus reuniones. Incluye cable de carga.","stock":12},{"id":"3","title":"Cámara de seguridad Wi-Fi para interior Full HD","price":84999,"condition":"nuevo","location":"cordoba","place":"Córdoba","words":"camara camaras seguridad wifi wi-fi interior full hd","images":[{"src":"assets/images/products/product-3.jpg","alt":"Cámara de seguridad para el hogar"}],"description":"Cámara para monitorear ambientes interiores desde una conexión Wi-Fi. Incluye fuente de alimentación y soporte.","stock":12},{"id":"4","title":"Apple iPhone 6s Plus 64 GB reacondicionado","price":249999,"condition":"usado","location":"caba","place":"Capital Federal","words":"apple iphone 6s plus 64 gb celular celulares liberado reacondicionado","images":[{"src":"assets/images/products/product-4.jpg","alt":"Teléfono celular con pantalla táctil"}],"description":"Celular reacondicionado, revisado y con marcas de uso leves. Incluye cable de carga. Consultá el estado en las imágenes.","stock":5},{"id":"5","title":"Auriculares inalámbricos de vincha con micrófono","price":89999,"condition":"nuevo","location":"buenos-aires","place":"Buenos Aires","words":"auricular auriculares inalambricos bluetooth vincha microfono","images":[{"src":"assets/images/products/product-5.jpg","alt":"Auriculares inalámbricos de vincha"}],"description":"Auriculares de vincha para escuchar música, estudiar y realizar llamadas. Incluye cable de carga.","stock":12},{"id":"6","title":"Mini parlante Bluetooth portátil recargable","price":39999,"condition":"nuevo","location":"santa-fe","place":"Santa Fe","words":"mini parlante parlantes bluetooth portatil recargable","images":[{"src":"assets/images/products/product-6.jpg","alt":"Parlante compacto portátil"}],"description":"Parlante compacto y recargable para llevar tu música con vos. Incluye cable de carga.","stock":12},{"id":"7","title":"Auriculares Bluetooth con cancelación de ruido","price":189999,"condition":"nuevo","location":"cordoba","place":"Córdoba","words":"auricular auriculares inalambricos bluetooth cancelacion ruido","images":[{"src":"assets/images/products/product-7.jpg","alt":"Auriculares de vincha con almohadillas"}],"description":"Auriculares de vincha para escuchar música y reducir el ruido del entorno. Incluye cable de carga.","stock":12},{"id":"8","title":"Notebook Apple MacBook Air 13 pulgadas, 8 GB, 256 GB","price":1499999,"condition":"usado","location":"caba","place":"Capital Federal","words":"notebook notebooks apple macbook air 13 pulgadas 8 gb 256 gb","images":[{"src":"assets/images/products/product-8.jpg","alt":"Notebook Apple MacBook Air abierta"}],"description":"Notebook usada para estudiar y trabajar. Memoria de 8 GB y almacenamiento de 256 GB. Incluye cargador.","stock":5},{"id":"9","title":"Dron GoPro Karma con cámara y accesorios","price":799999,"condition":"usado","location":"caba","place":"Capital Federal","words":"dron drones gopro karma camara accesorios","stock":3,"description":"Dron usado en buen estado, con cámara, control remoto y estuche de transporte. Incluye los accesorios que se muestran en las fotos. Revisado por el vendedor antes de su publicación.","images":[{"src":"assets/images/product-details/01.jpg","alt":"Dron GoPro Karma con cámara, vista general"},{"src":"assets/images/product-details/02.jpg","alt":"Dron GoPro Karma con cámara, vista lateral"},{"src":"assets/images/product-details/03.jpg","alt":"Dron plegado con control remoto y accesorios en su estuche"}]}];
+      const campo = document.getElementById("busqueda");
+      const lista = document.querySelector(".meli-suggestions");
+      const normalizar = texto => texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+      const populares = ["Auriculares inalámbricos", "Notebooks para estudiar", "Parlantes Bluetooth", "Celulares liberados"];
+      const consultas = ["auriculares", "notebooks", "parlantes", "celulares"];
+      function sugerir() {
+        const consulta = normalizar(campo.value);
+        lista.replaceChildren();
+        const opciones = consulta
+          ? productos.filter(producto => consulta.split(/\s+/).every(termino => normalizar(producto.title + " " + producto.words).includes(termino))).slice(0, 5).map(producto => ({ texto: producto.title, enlace: "product-grids.html?q=" + encodeURIComponent(producto.title) }))
+          : populares.map((texto, indice) => ({ texto, enlace: "product-grids.html?q=" + consultas[indice] }));
+        if (!opciones.length) opciones.push({ texto: "No hay coincidencias. Explorá todos los productos", enlace: "product-grids.html" });
+        opciones.forEach(opcion => {
+          const item = document.createElement("li");
+          const enlace = document.createElement("a");
+          enlace.href = opcion.enlace;
+          enlace.textContent = opcion.texto;
+          item.appendChild(enlace);
+          lista.appendChild(item);
+        });
+      }
+      campo.addEventListener("input", sugerir);
+      campo.addEventListener("focus", sugerir);
+      sugerir();
+    })();
+  </script>
+</body>
+</html>
