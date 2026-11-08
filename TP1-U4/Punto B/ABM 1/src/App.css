@@ -1,0 +1,18 @@
+.App {
+  text-align: center;
+}
+
+.employee-list {
+  margin: 10rem;
+}
+
+.employee-form {
+  margin: 15rem;
+}
+
+@media (max-width: 700px) {
+  .employee-list,
+  .employee-form {
+    margin: 2rem 1rem;
+  }
+}

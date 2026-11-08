@@ -1,0 +1,39 @@
+.tableContainer{
+    flex: 1;
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.contactTable{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.contactTable th, .contactTable td{
+    padding: 0.8rem;
+    text-align: left;
+    color: #333;
+}
+
+.contactTable th{
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.deleteButton{
+    padding: 0.5rem 1rem;
+    background-color: #e53935;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.editButton{
+    background-color: #4caf50;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
